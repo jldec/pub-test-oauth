@@ -3,13 +3,16 @@
   "version": "0.0.1",
   "description": "standalone pub-pkg-google-oauth test",
   "main": "pub-config.js",
-  "dependencies": {},
+  "dependencies": {
+    "pub-server": "^2.0.0"
+  },
   "devDependencies": {},
   "repository": {
     "type": "git",
     "url": "git://github.com/jldec/pub-test-auth.git"
   },
   "scripts": {
+    "start": "pub"
   },
   "author": "jurgen leschner",
   "license": "MIT"
