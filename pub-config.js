@@ -3,12 +3,11 @@
  *
 */
 
-// use tel platform-content solutions markdown and images repos on github
-var ifGithubSrc = process.env.GH_SRC;
-
 var opts = module.exports = {
 
   appUrl: process.env.APP || 'https://pub-test-auth.herokuapp.com',
+
+  "trust proxy": 1, // for secure sessions
 
   pkgs: [
     'pub-pkg-google-oauth'
@@ -24,13 +23,19 @@ var opts = module.exports = {
   ],
 
   generatorPlugins: [
+    './plugins/generator-plugin.js'
   ],
 
   serverPlugins: [
+    './plugins/server-plugin.js'
   ],
 
   browserScripts: [
   ],
+
+  session: {
+    cookie: { secure: true }
+  },
 
   redis: {
     prefix: 'sess-pub-test-auth:',
