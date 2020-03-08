@@ -7,10 +7,7 @@ var opts = module.exports = {
 
   appUrl: process.env.APP || 'https://pub-test-auth.herokuapp.com',
 
-  "trust proxy": 1, // for secure sessions
-
   pkgs: [
-    'pub-pkg-google-oauth'
   ],
 
   sources: [
@@ -34,12 +31,18 @@ var opts = module.exports = {
   ],
 
   session: {
-    cookie: { secure: true }
+    cookie: { maxAge: 60*60*1000 }
   },
 
   redis: {
-    prefix: 'sess-pub-test-auth:',
-    _log: 'log-pub-test-auth:'
+    prefix: 'pub-test-auth:',
+    _log: 'log:'
   }
 
 };
+
+if (process.env.AUTH) {
+  opts.pkgs.push('pub-pkg-google-oauth');
+  opts.session.cookie.secure = true;
+  opts["trust proxy"] = 1;
+}
