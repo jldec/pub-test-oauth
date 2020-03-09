@@ -1,1 +1,1 @@
-fetch('/server/log' + location.pathname + (location.search || ''), {cache:'no-cache'});
+fetch('/server/log' + location.pathname + (location.search || ''), { method:'POST'});
