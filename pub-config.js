@@ -31,7 +31,8 @@ var opts = module.exports = {
   ],
 
   session: {
-    cookie: { maxAge: 60*60*1000 }
+    cookie: { maxAge: 60*60*1000 },
+    secret: process.env.SSC
   },
 
   redis: {
