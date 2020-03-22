@@ -36,9 +36,12 @@ var opts = module.exports = {
 
 };
 
-if (process.env.AUTH) {
+if (process.env.REDIS) {
   opts.redis = {prefix: 'pub-test-auth:', _log: 'log:'};
   opts.session.secret = process.env.SSC
+}
+
+if (process.env.AUTH) {
   opts.pkgs.push('pub-pkg-google-oauth');
   opts.session.cookie.secure = true;
   opts["trust proxy"] = 1;
