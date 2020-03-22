@@ -32,17 +32,13 @@ var opts = module.exports = {
 
   session: {
     cookie: { maxAge: 60*60*1000 },
-    secret: process.env.SSC
   },
-
-  redis: {
-    prefix: 'pub-test-auth:',
-    _log: 'log:'
-  }
 
 };
 
 if (process.env.AUTH) {
+  opts.redis = {prefix: 'pub-test-auth:', _log: 'log:'};
+  opts.session.secret = process.env.SSC
   opts.pkgs.push('pub-pkg-google-oauth');
   opts.session.cookie.secure = true;
   opts["trust proxy"] = 1;

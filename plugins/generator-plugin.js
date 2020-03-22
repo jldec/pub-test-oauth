@@ -4,7 +4,9 @@ module.exports = function(generator) {
   var u = generator.util;
 
   hb.registerHelper('show-session', function(frame) {
-    return  u.htmlify(generator.req && generator.req.session);
+    if (!(generator.req && generator.req.session)) return 'no-session';
+    var data = u.assign({}, { sessionID:generator.req.sessionID }, generator.req.session );
+    return u.htmlify(data);
   });
 
 };
