@@ -1,4 +1,4 @@
-# pub-test-auth
+# pub-test-auth (not working anymore - heroku app removed)
 
 Test repo and website for pub-server persistent sessions and google-oauth.
 
